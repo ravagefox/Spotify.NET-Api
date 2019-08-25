@@ -51,6 +51,8 @@ namespace Capture
 
         public static byte[] DownloadData(string location)
         {
+            if (string.IsNullOrEmpty(location)) return null;
+
             return context.DownloadData(location);
         }
 

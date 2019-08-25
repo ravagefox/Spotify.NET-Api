@@ -42,8 +42,6 @@ namespace Capture
 
             while (hasNext)
             {
-                Console.WriteLine(list["next"].ToString());
-
                 var data = DownloadRawPlaylist(new Uri(list["next"].ToString()));
                 songs.AddRange(GetSet(data));
 
@@ -79,7 +77,6 @@ namespace Capture
             {
                 var songUri = items[index]["track"].href.ToString();
                 SpotifySong song = SpotifySong.DownloadSongInfo(Path.GetFileName(songUri));
-                Console.WriteLine(song.Track);
                 songCollection.Add(song);
             }
 

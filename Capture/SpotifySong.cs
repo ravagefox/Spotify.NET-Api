@@ -32,7 +32,23 @@ namespace Capture
 
         public TimeSpan Duration { get; internal set; }
 
-        public Image Artwork => Bitmap.FromStream(new MemoryStream(HttpHelper.DownloadData(artworkLocation)));
+        public Image Artwork
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(artworkLocation))
+                    return null;
+                else
+                {
+                    var data = HttpHelper.DownloadData(artworkLocation);
+                    var ms = new MemoryStream(data);
+                    var img = Image.FromStream(ms);
+                    ms.Close();
+
+                    return img;
+                }
+            }
+        }
 
         public int Number { get; internal set; }
 
@@ -65,7 +81,6 @@ namespace Capture
                     if (imagePaths.Next != null)
                     {
                         var albumLocation = (string)imagePaths[0]["url"].ToString();
-                        Console.WriteLine(albumLocation);
                         spotifySong.artworkLocation = albumLocation;
                     }
                 }
