@@ -75,5 +75,10 @@ namespace Capture
 
             return new Uri(builder.ToString());
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -69,5 +69,9 @@ namespace Capture
             return new Uri(builder.ToString());
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}", SongCollection[0].Artist, Name);
+        }
     }
 }

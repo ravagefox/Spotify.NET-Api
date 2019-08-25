@@ -35,6 +35,8 @@ namespace Capture
 
         public static SpotifyAccount BearerToken { get; set; }
 
+        public static event EventHandler DownloadCompleted;
+
 
         public static void InitializeHeaders(SpotifyAccount account)
         {
@@ -58,6 +60,7 @@ namespace Capture
             if (!string.IsNullOrEmpty(data))
             {
                 handleCallback?.Invoke(data);
+                DownloadCompleted?.Invoke(context, null);
             }
         }
     }
