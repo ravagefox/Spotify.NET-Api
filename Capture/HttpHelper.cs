@@ -16,6 +16,7 @@
 
 using System;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Capture
 {
@@ -53,13 +54,12 @@ namespace Capture
             return context.DownloadData(location);
         }
 
-        public static void DownloadString(Uri location, Action<string> handleCallback)
+        public static void DownloadString(Uri location, Action<string> callback)
         {
-            var data = context.DownloadString(location);
-
+            var data = context.DownloadString(location.AbsoluteUri);
             if (!string.IsNullOrEmpty(data))
             {
-                handleCallback?.Invoke(data);
+                callback?.Invoke(data);
                 DownloadCompleted?.Invoke(context, null);
             }
         }

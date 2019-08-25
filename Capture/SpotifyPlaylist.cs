@@ -45,11 +45,9 @@ namespace Capture
                 Console.WriteLine(list["next"].ToString());
 
                 var data = DownloadRawPlaylist(new Uri(list["next"].ToString()));
-
                 songs.AddRange(GetSet(data));
 
                 hasNext = data["next"] != null;
-
                 if (hasNext)
                     list = data;
             }
