@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SpotifyDownloader.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ClientId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bd072f28c9de4e77948dcb5a4c60326f</Value>
+    </Setting>
+    <Setting Name="SecretId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5f2dfa6780ad49259e43e6a65a28ceba</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
